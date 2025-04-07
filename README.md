@@ -110,15 +110,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🏆 Team
 
-- [Your Name]
-- [Team Member 2]
-- [Team Member 3]
+- Lakshmi Pavithra Yemireddy
+- Bellala JayaLakshmi
+  
 
-### 🙏 Acknowledgments
-
-- Accenture Hackathon organizers
-- [Other acknowledgments]
-
----
-
-*This project was developed as part of the Accenture Hackathon 2024.* 
