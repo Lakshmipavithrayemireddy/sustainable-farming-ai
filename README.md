@@ -44,7 +44,7 @@ Our solution is a multi-agent AI system that:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/sustainable-farming-ai.git
+git clone https://github.com/Lakshmipavithrayemireddy/sustainable-farming-ai.git
 cd sustainable-farming-ai
 ```
 
@@ -87,12 +87,15 @@ Run the test suite:
 pytest tests/
 ```
 
-### 🐳 Docker Support
+### 🚀 Live Demo
 
-Build and run with Docker:
-```bash
-docker-compose up --build
-```
+The application is deployed at: https://sustainable-farming-ai.onrender.com
+
+**Note:** This application is deployed on Render's free tier which spins down after 15 minutes of inactivity. When accessing, please allow 1-2 minutes for the service to start up.
+
+- API Documentation: https://sustainable-farming-ai.onrender.com/docs
+- API Endpoints: All endpoints are prefixed with "/api"
+
 
 ### 📚 Documentation
 
@@ -100,13 +103,13 @@ docker-compose up --build
 - [User Guide](docs/user_guide.md)
 - [API Documentation](docs/api_documentation.md)
 
-### 🤝 Contributing
+### 💡 Innovation
 
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) first.
+Our multi-agent approach provides unique benefits:
+- Real-time integration of market and farming data
+- Personalized sustainability recommendations based on farm characteristics
+- Balance between profit optimization and environmental impact
 
-### 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### 🏆 Team
 
