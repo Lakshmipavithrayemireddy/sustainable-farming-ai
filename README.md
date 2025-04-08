@@ -114,6 +114,6 @@ Our multi-agent approach provides unique benefits:
 ### 🏆 Team
 
 - Lakshmi Pavithra Yemireddy
-- Bellala JayaLakshmi
+
   
 
