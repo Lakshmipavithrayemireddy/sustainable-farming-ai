@@ -1,6 +1,6 @@
 # Sustainable Farming AI System 🌾
 
-## Accenture Hackathon 2024: Data-Driven AI for Sustainable Farming
+## Accenture Hackathon 2025: Data-Driven AI for Sustainable Farming
 
 ### 🎯 Problem Statement
 
