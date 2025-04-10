@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Profile - AgriSense AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .success {
+            color: green;
+            padding: 15px;
+            border: 1px solid green;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Farmer Profile</h1>
+        <form id="farmerProfileForm">
+            <div class="form-group">
+                <label for="name">Farmer Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="farm_size">Farm Size (in acres):</label>
+                <input type="number" id="farm_size" name="farm_size" step="0.1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="soil_type">Soil Type:</label>
+                <select id="soil_type" name="soil_type" required>
+                    <option value="">Select soil type</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silt">Silt</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="water_availability">Water Availability:</label>
+                <select id="water_availability" name="water_availability" required>
+                    <option value="">Select water availability</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred_crops">Preferred Crops (comma-separated):</label>
+                <input type="text" id="preferred_crops" name="preferred_crops" placeholder="e.g., rice, wheat, corn">
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget (in Rs.):</label>
+                <input type="number" id="budget" name="budget" required>
+            </div>
+
+            <button type="submit" id="submit-button">Create Profile</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('farmerProfileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitButton = document.getElementById('submit-button');
+            submitButton.disabled = true;
+            submitButton.innerHTML = 'Creating Profile...';
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                location: document.getElementById('location').value,
+                farm_size: parseFloat(document.getElementById('farm_size').value),
+                soil_type: document.getElementById('soil_type').value,
+                water_availability: document.getElementById('water_availability').value,
+                preferred_crops: document.getElementById('preferred_crops').value.split(',').map(crop => crop.trim()).filter(crop => crop),
+                budget: parseFloat(document.getElementById('budget').value)
+            };
+
+            try {
+                const response = await fetch('/api/farmers/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('result').innerHTML = `
+                        <div class="success">
+                            <h3>Profile Created Successfully!</h3>
+                            <p>Farmer ID: ${data.farmer_id}</p>
+                            <p>${data.message}</p>
+                            <p>Redirecting to recommendations...</p>
+                        </div>
+                    `;
+                    // Redirect to recommendations after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = `/recommendations/${data.farmer_id}`;
+                    }, 2000);
+                } else {
+                    throw new Error(data.detail || 'Failed to create profile');
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = `
+                    <div class="error">
+                        <h3>Error!</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                // Reset button state
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Create Profile';
+            }
+        });
+    </script>
+</body>
+</html> 
