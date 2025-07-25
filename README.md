@@ -2,11 +2,11 @@
 
 ## Accenture Hackathon 2025: Data-Driven AI for Sustainable Farming
 
-### 🎯 Problem Statement
+### Problem Statement
 
 Agriculture faces critical challenges including water scarcity, excessive pesticide use, and soil degradation. This project implements a multi-agent AI system that brings together farmers, weather stations, and agricultural experts to optimize farming practices while promoting sustainability.
 
-### 🚀 Solution Overview
+### Solution Overview
 
 Our solution is a multi-agent AI system that:
 - Analyzes farmer inputs about land, crop preferences, and financial goals
@@ -15,7 +15,7 @@ Our solution is a multi-agent AI system that:
 - Optimizes resource usage (water, soil, pesticides)
 - Reduces environmental impact
 
-### 🛠️ Technical Architecture
+### Technical Architecture
 
 1. **Multi-Agent System**
    - Farmer Advisor Agent: Analyzes farm-specific data
@@ -72,7 +72,7 @@ python main.py
 
 For detailed API documentation, see [docs/api_documentation.md](docs/api_documentation.md)
 
-### 📈 Results and Impact
+###  Results and Impact
 
 Our system achieves:
 - 30% reduction in water usage
@@ -80,14 +80,14 @@ Our system achieves:
 - 40% reduction in pesticide use
 - 20% improvement in farmer profitability
 
-### 🧪 Testing
+###  Testing
 
 Run the test suite:
 ```bash
 pytest tests/
 ```
 
-### 🚀 Live Demo
+### Live Demo
 
 The application is deployed at: https://sustainable-farming-ai.onrender.com
 
@@ -97,13 +97,13 @@ The application is deployed at: https://sustainable-farming-ai.onrender.com
 - API Endpoints: All endpoints are prefixed with "/api"
 
 
-### 📚 Documentation
+### Documentation
 
 - [Setup Guide](docs/setup_guide.md)
 - [User Guide](docs/user_guide.md)
 - [API Documentation](docs/api_documentation.md)
 
-### 💡 Innovation
+### Innovation
 
 Our multi-agent approach provides unique benefits:
 - Real-time integration of market and farming data
@@ -111,9 +111,9 @@ Our multi-agent approach provides unique benefits:
 - Balance between profit optimization and environmental impact
 
 
-### 🏆 Team
+### 🏆Team
 
-- Lakshmi Pavithra Yemireddy
+- Lakshmi Pavithra 
 
   
 
